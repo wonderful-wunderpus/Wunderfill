@@ -7,9 +7,8 @@ const Schema = mongoose.Schema;
 
 //user schema
 const userSchema = new Schema({
-  email: String,
-  username: String,
-  password: String,
+  username: { type : String, required : true },
+  password: { type : String, required : true },
   resume: {
     type: Schema.Types.ObjectId,
     ref: 'resume'
@@ -31,8 +30,6 @@ const User = mongoose.model('user', userSchema);
 //resume schema as own file
 const resumeSchema = new Schema({
   // resumeSchemaId: {type: Number},
-  firstName: String,
-  lastName: String,
   fields: [
     {
       key: 'Key',
