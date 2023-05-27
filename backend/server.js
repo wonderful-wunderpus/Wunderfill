@@ -1,6 +1,6 @@
-const express = require('express')
-const dotenv = require('dotenv')
-import connectDB from './db/db.js'
+import express from 'express';
+import dotenv from 'dotenv';
+import connectDB from './db/db.js';
 import errorMiddleware from './middleware/errorMiddleware.js';
 
 
