@@ -12,4 +12,4 @@ router.post('/signup', userController.createUser, (req, res) => res.status(201).
 
 //get & post for resume data
 
-module.exports = router;
+export default router;
