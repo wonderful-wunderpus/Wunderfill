@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import connectDB from './db/db
 import errorMiddleware from './middleware/errorMiddleware';
 
+
 dotenv.config()
 
 connectDB()
