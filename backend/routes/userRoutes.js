@@ -1,5 +1,5 @@
-const express = require('express');
-const userController = require('../controllers/userController');
+import express from 'express';
+import userController from '../controllers/userController';
 const router = express.Router();
 
 router.get('/', userController, (req, res) => res.status(200)); //login as default homepage
