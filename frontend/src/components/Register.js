@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
 
 const Register = () => {
   const [formData, setFormData] = useState({})  
@@ -17,9 +18,9 @@ const Register = () => {
       alert('Passwords do not match')
     } else {
       // dispatch register action, args: username, password
-      fetch([route], {
+      fetch('/signup', {
         method: 'POST',
-        headers: {},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       })
     }
@@ -48,4 +49,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Register;

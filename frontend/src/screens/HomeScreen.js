@@ -1,9 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const HomeScreen = () => {
   return (
-    <h1>HomeScreen</h1>
-  )
+    <div>
+      <h1>HomeScreen</h1>
+      <button>
+        <Link to='signup'>Signup</Link>
+      </button>
+      <button>
+        <Link to='login'>Login</Link>
+      </button>
+    </div>
+  );
 }
 
-export default HomeScreen
+export default HomeScreen;
