@@ -13,11 +13,11 @@
     "default_title": "Wunderfull\nClick to open",
     "default_popup": "index.html"
   },
-    "content_scripts": [
-      {
+  "content_scripts": [
+    {
       "matches": ["*://*/"],
       "js": ["./bundle.js"]
-      }
-    ],
+    }
+  ],
   "permissions": ["activeTab"]
 }
