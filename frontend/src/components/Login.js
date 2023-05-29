@@ -1,9 +1,11 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({});
+  const [loggedIn, setLoggedIn] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -13,33 +15,29 @@ const Login = () => {
   }
 
   const submitHandler = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     fetch('/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     })
-    // then - successful authentication: use React Router useNavigate Hook to redirect to resume form page
-    // use controller to handle redirect to protect the authenticated page.
-    // catch - error: use React Router useNavigate Hook to redirect to signup page OR display an error message
+      .then((response) => {
+        setLoggedIn(true);
+        navigate('/form')
+      })
+      .catch((err) => console.log(err))
   }
 
   return (
     <>
+      <button className='backButton' onClick={() => navigate(-1)}>Back ⬅︎</button>
       <form onSubmit={submitHandler}>
         <h1>Sign in</h1>
-        {/* <label >
-          <p>Username:</p>
-          <input type="text" name="username" onChange={handleChange}/> */}
-        {/* </label> */}
-        <label htmlFor='username'>Username: </label>
-        <input type="text" name="username" onChange={handleChange}/>
-        <label>
-          <p>Password:</p>
-          <input type="password" name="password" onChange={handleChange}/>
-        </label>
+        <label htmlFor='username'>Username: <input type="text" name="username" onChange={handleChange}/> </label>
+        <label htmlFor='password'>Password: <input type="password" name="password" onChange={handleChange}/> </label>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={submitHandler}>Login</button>
+          {loggedIn === false ? <p className='password-message'>Invalid login credentials</p> : null}
         </div>
       </form>
     </>
