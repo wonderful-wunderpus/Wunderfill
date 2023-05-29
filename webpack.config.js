@@ -28,6 +28,11 @@ const config = {
         exclude: [/node_modules/, /^index\.css$/],
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.m?js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
     ],
   },
   plugins: [
