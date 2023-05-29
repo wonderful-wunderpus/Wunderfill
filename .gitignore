@@ -3,3 +3,6 @@ node_modules
 build
 build/*
 build.css
+.vscode/
+build.crx
+build.pem
