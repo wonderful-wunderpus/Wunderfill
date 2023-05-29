@@ -23,7 +23,8 @@
     "prefer-const": "warn",
     "quotes": ["warn", "single"],
     "space-infix-ops": "warn",
-    "react/prop-types": "warn"
+    "react/prop-types": "warn",
+    "no-fallthrough": "off"
   },
   "settings": {
     "react": { "version": "detect" }
