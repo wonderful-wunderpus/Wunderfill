@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const connectDB = async () => {
   try {
@@ -6,6 +7,7 @@ const connectDB = async () => {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useCreateIndex: true,
+      dbName: 'wunderfill-db',
     })
     console.log(`MongoDB Connected: ${conn.connection.host}`)
   } catch (error) {
