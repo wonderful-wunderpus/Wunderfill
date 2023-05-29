@@ -6,8 +6,11 @@
   "type": "module",
   "scripts": {
     "build": "webpack",
+    "start": "webpack serve --hot",
+    "server": "nodemon backend/server",
     "css": "postcss frontend/src/index.css -o frontend/src/build.css",
-    "css:w": "postcss -w frontend/src/index.css -o frontend/src/build.css"
+    "css:w": "postcss -w frontend/src/index.css -o frontend/src/build.css",
+    "dev": "npm run css && npm run build && concurrently \"npm run start\" \"npm run server\" \"npm run css:w\""
   },
   "repository": {
     "type": "git",
@@ -42,12 +45,14 @@
     "@babel/preset-react": "^7.22.0",
     "babel-loader": "^9.1.2",
     "colors": "^1.4.0",
+    "concurrently": "^8.0.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.4",
     "eslint": "^8.41.0",
     "eslint-plugin-react": "^7.32.2",
     "html-webpack-plugin": "^5.5.1",
     "nodemon": "^2.0.22",
+    "npm-watch": "^0.11.0",
     "postcss": "^8.4.23",
     "postcss-cli": "^10.1.0",
     "redux-devtools-extension": "^2.13.9",
@@ -55,6 +60,7 @@
     "style-loader": "^3.3.3",
     "tailwindcss": "^3.3.2",
     "webpack": "^5.84.1",
-    "webpack-cli": "^5.1.1"
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
   }
 }
