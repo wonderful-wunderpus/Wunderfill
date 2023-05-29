@@ -16,14 +16,19 @@ const Login = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    fetch('/login', {
+    fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     })
       .then((response) => {
-        setLoggedIn(true);
-        navigate('/form')
+        if (response.status === 200) {
+          console.log(response)
+          setLoggedIn(true);
+          navigate('/form')
+        } else {
+          setLoggedIn(false);
+        }
       })
       .catch((err) => console.log(err))
   }
