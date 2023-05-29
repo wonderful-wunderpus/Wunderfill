@@ -55,6 +55,7 @@ const config = {
     // Enable importing JS / JSX files without specifying their extension
     extensions: ['.js', '.jsx'],
   },
+  devtool: 'cheap-module-source-map',
 };
 
 export default config;
