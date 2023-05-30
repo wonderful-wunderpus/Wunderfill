@@ -7,17 +7,17 @@ const userController = {};
 // get user
 userController.getUser = async (req, res, next) => {
 
-  const { username } = req.body; 
+  const { userId } = req.body;
 
   try {
-    
+
     // if no user do something
 
-    const userExists = await User.findOne({ username });
-    const user = await User.findById(user._id)
+    const userExists = await models.User.findById({ userId });
+    // const user = await User.findById(user._id)
 
     if (userExists) {
-      
+
       res.locals.user = userExists;
       // maybe add jwt here or something
       return next()

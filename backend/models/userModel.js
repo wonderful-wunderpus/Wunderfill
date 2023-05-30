@@ -41,19 +41,32 @@ const User = mongoose.model('user', userSchema);
 
 // Resume schema as own file
 const resumeSchema = new Schema({
-  name: {
+  // try to get working with just email
+  email: {
     type: String,
     required: true,
-  },
-  job: {
-    type: String,
-    required: true,
-  },
-  bio: {
-    type: String,
-    required: true,
-  },
+  }
 });
+
+// maybe use .pre()
+
+// resumeSchema.pre('save', function (field) {
+
+//   // checks if field is not already in resumeSchema
+//   if (!(field in this)) {
+//     this.add({ field: Schema.Types.Mixed });
+//   }
+//   return next;
+//   https://stackoverflow.com/questions/28166463/how-to-create-mongoose-schema-dynamically
+// });
+
+// resumeSchema.methods.addField = function (field) {
+//   // add field to resume. Using mixed incase of a number, but not sure if a string could still be used for that
+//   // not sure if it should be this.add
+//   resumeSchema.add({ field: Schema.Types.Mixed });
+// 
+// }
+
 const Resume = mongoose.model('resume', resumeSchema);
 
 // Export
