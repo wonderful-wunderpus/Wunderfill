@@ -4,6 +4,7 @@ import express from 'express';
 import colors from 'colors';
 import errorMiddleware from './middleware/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
+import cookieParser from 'cookie-parser';
 
 
 if (process.env.NODE_ENV !== 'production') {
@@ -22,6 +23,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.use('/', userRoutes);
 
@@ -31,3 +33,5 @@ app.use((err, req, res, next) => errorMiddleware(err, res));
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+module.exports = app;
