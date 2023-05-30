@@ -1,0 +1,23 @@
+{
+  "name": "Autofill Extension",
+  "description": "Resume Autofill",
+  "manifest_version": 3,
+  "author": "Team Wonderpus",
+  "version": "1.0.0",
+  "action": {
+    "default_icon": {
+      "16": "./favicon/icon-16.png",
+      "24": "./favicon/icon-24.png",
+      "32": "./favicon/icon-32.png"
+    },
+    "default_title": "Wunderfull\nClick to open",
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/"],
+      "js": ["./bundle.js"]
+    }
+  ],
+  "permissions": ["activeTab"]
+}

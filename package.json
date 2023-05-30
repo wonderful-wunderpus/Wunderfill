@@ -1,0 +1,66 @@
+{
+  "name": "wunderfill",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve --hot",
+    "server": "nodemon backend/server",
+    "css": "postcss frontend/src/index.css -o frontend/src/build.css",
+    "css:w": "postcss -w frontend/src/index.css -o frontend/src/build.css",
+    "dev": "npm run css && npm run build && concurrently \"npm run start\" \"npm run server\" \"npm run css:w\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wonderful-wunderpus/Wunderfill.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wonderful-wunderpus/Wunderfill/issues"
+  },
+  "homepage": "https://github.com/wonderful-wunderpus/Wunderfill#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.5.0",
+    "mongoose": "^7.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router": "^6.11.2",
+    "react-router-dom": "^6.11.2",
+    "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.1",
+    "@babel/preset-env": "^7.22.2",
+    "@babel/preset-react": "^7.22.0",
+    "babel-loader": "^9.1.2",
+    "colors": "^1.4.0",
+    "concurrently": "^8.0.1",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.4",
+    "eslint": "^8.41.0",
+    "eslint-plugin-react": "^7.32.2",
+    "html-webpack-plugin": "^5.5.1",
+    "nodemon": "^2.0.22",
+    "npm-watch": "^0.11.0",
+    "postcss": "^8.4.23",
+    "postcss-cli": "^10.1.0",
+    "redux-devtools-extension": "^2.13.9",
+    "source-map-loader": "^4.0.1",
+    "style-loader": "^3.3.3",
+    "tailwindcss": "^3.3.2",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  }
+}

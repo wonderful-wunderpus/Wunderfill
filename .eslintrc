@@ -1,0 +1,32 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/test", "**/__tests__", "**/*.html", "build/"],
+  "env": {
+    "node": true,
+    "browser": true,
+    "es2021": true
+  },
+  "plugins": ["react"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "semi": "warn",
+    "space-unary-ops": "warn",
+    "no-trailing-spaces": "warn",
+    "indent": ["warn", 2],
+    "no-unused-vars": ["off", { "vars": "local" }],
+    "prefer-const": "warn",
+    "quotes": ["warn", "single"],
+    "space-infix-ops": "warn",
+    "react/prop-types": "warn",
+    "no-fallthrough": "off"
+  },
+  "settings": {
+    "react": { "version": "detect" }
+  }
+}
