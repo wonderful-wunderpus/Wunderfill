@@ -22,4 +22,4 @@ sessionController.startSession = async (req, res, next) => {
     }
 };
 
-module.exports = sessionController;
+export default sessionController;
