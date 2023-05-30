@@ -1,5 +1,6 @@
 import express from 'express';
 import userController from '../controllers/userController.js';
+import resumeController from '../controllers/resumeController.js';
 
 const router = express.Router();
 
@@ -12,5 +13,10 @@ router.post('/signup', userController.createUser, (req, res) => res.status(201).
 
 // Redirect to user info
 router.post('/login', userController.verifyUser, (req, res) => res.sendStatus(201));
+
+router.route('/resume')
+  .get(resumeController.getResume, (res) => res.status(201).json(res.locals.resume)) //dont know if this is needed
+  .post(resumeController.createResume, (res) => res.status(201).json(res.locals.resume))
+  .delete(resumeController.deleteResume);
 
 export default router;
